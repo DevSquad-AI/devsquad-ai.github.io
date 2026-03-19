@@ -845,7 +845,7 @@
         <h3>Get Started in Seconds</h3>
         <p>Install DevSquad and transform your AI coding assistant today</p>
         <div class="install-code">
-          <span class="mono">bunx github.com/devsquad-ai/devsquad install</span>
+          <span class="mono">git clone https://github.com/devsquad-ai/devsquad.git<br>cd devsquad<br>bun install</span>
           <span class="copy">copy</span>
         </div>
       </div>
@@ -886,7 +886,7 @@
 
     // Copy to clipboard
     document.querySelector('.install-code .copy').addEventListener('click', () => {
-      navigator.clipboard.writeText('bunx github.com/devsquad-ai/devsquad install');
+      navigator.clipboard.writeText('git clone https://github.com/devsquad-ai/devsquad.git\ncd devsquad\nbun install');
       document.querySelector('.install-code .copy').textContent = 'copied!';
       setTimeout(() => {
         document.querySelector('.install-code .copy').textContent = 'copy';
