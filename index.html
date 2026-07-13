@@ -530,31 +530,54 @@
       margin-bottom: 32px;
     }
 
-    .install-code {
-      display: inline-flex;
+    .install-section-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .install-step {
+      display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 16px 24px;
+      gap: 16px;
+      padding: 16px 20px;
       background: var(--bg-primary);
       border: 1px solid var(--border);
       border-radius: 12px;
+      text-align: left;
+    }
+
+    .install-step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-dim);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .install-step-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .install-step-text code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 16px;
-    }
-
-    .install-code .copy {
-      padding: 4px 8px;
       background: var(--bg-tertiary);
-      border-radius: 6px;
-      font-size: 12px;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--text-primary);
     }
 
-    .install-code .copy:hover {
-      background: var(--accent);
-      color: var(--bg-primary);
+    .install-step-text a {
+      color: var(--accent);
     }
 
     /* Footer */
@@ -652,12 +675,12 @@
     <div class="hero-badge">
       <span>Open Source</span>
       <span>•</span>
-      <span>Optimized for Chinese Models</span>
+      <span>Multi-Agent AI Team</span>
     </div>
     <h1>Your AI<br><span>Development Squad</span></h1>
     <p>
-      DevSquad transforms your AI coding assistant into a coordinated development team. 
-      Built on OpenCode, optimized for Qwen, MiniMax, and GLM.
+      DevSquad transforms your AI coding assistant into a coordinated development team.
+      Built on OpenCode. Type <code>upup</code> to activate.
     </p>
     <div class="hero-cta">
       <a href="https://github.com/DevSquad-AI/DevSquad" class="btn btn-primary" target="_blank">
@@ -743,42 +766,40 @@
     <div class="container">
       <div class="section-header">
         <div class="section-label">Supported Models</div>
-        <h2>Optimized for Chinese AI</h2>
-        <p>First-class support for leading Chinese LLM providers</p>
+        <h2>Optimized for Chinese Models</h2>
+        <p>Priority: MiniMax &gt; GLM &gt; Qwen &gt; DeepSeek &gt; Claude</p>
       </div>
       <div class="models-grid">
         <div class="model-card">
-          <div class="model-provider">Alibaba</div>
-          <h3>Qwen <span class="tag">Recommended</span></h3>
+          <div class="model-provider">1st Priority</div>
+          <h3>MiniMax <span class="tag">Recommended</span></h3>
+          <div class="model-models">
+            <span class="model-tag">MiniMax-M2.5</span>
+            <span class="model-tag">MiniMax-M3</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-provider">2nd Priority</div>
+          <h3>GLM (Zhipu)</h3>
+          <div class="model-models">
+            <span class="model-tag">glm-4.7</span>
+            <span class="model-tag">glm-5</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-provider">3rd Priority</div>
+          <h3>Qwen (Alibaba)</h3>
           <div class="model-models">
             <span class="model-tag">qwen-coder-turbo</span>
             <span class="model-tag">qwen-max</span>
-            <span class="model-tag">qwen-vl-max</span>
           </div>
         </div>
         <div class="model-card">
-          <div class="model-provider">MiniMax</div>
-          <h3>MiniMax</h3>
+          <div class="model-provider">4th Priority</div>
+          <h3>DeepSeek</h3>
           <div class="model-models">
-            <span class="model-tag">minimax-m2.5-free</span>
-            <span class="model-tag">minimax-m2.5</span>
-          </div>
-        </div>
-        <div class="model-card">
-          <div class="model-provider">Zhipu AI</div>
-          <h3>GLM</h3>
-          <div class="model-models">
-            <span class="model-tag">glm-5</span>
-            <span class="model-tag">glm-4v</span>
-          </div>
-        </div>
-        <div class="model-card">
-          <div class="model-provider">Fallback</div>
-          <h3>Others</h3>
-          <div class="model-models">
-            <span class="model-tag">Claude</span>
-            <span class="model-tag">GPT-4</span>
-            <span class="model-tag">Gemini</span>
+            <span class="model-tag">deepseek-coder</span>
+            <span class="model-tag">deepseek-chat</span>
           </div>
         </div>
       </div>
@@ -834,6 +855,11 @@
           <h4>Reviewer</h4>
           <p>Code review</p>
         </div>
+        <div class="agent-card">
+          <div class="agent-icon">👁</div>
+          <h4>Multimodal Looker</h4>
+          <p>Vision/screenshots</p>
+        </div>
       </div>
     </div>
   </section>
@@ -844,9 +870,19 @@
       <div class="install-section">
         <h3>Get Started in Seconds</h3>
         <p>Install DevSquad and transform your AI coding assistant today</p>
-        <div class="install-code">
-          <span class="mono">git clone https://github.com/devsquad-ai/devsquad.git<br>cd devsquad<br>bun install</span>
-          <span class="copy">copy</span>
+        <div class="install-section-steps">
+          <div class="install-step">
+            <div class="install-step-num">1</div>
+            <div class="install-step-text">Install <a href="https://opencode.ai" target="_blank">OpenCode</a> first</div>
+          </div>
+          <div class="install-step">
+            <div class="install-step-num">2</div>
+            <div class="install-step-text"><code>npm install -g devsquad-ai && bunx devsquad install</code></div>
+          </div>
+          <div class="install-step">
+            <div class="install-step-num">3</div>
+            <div class="install-step-text"><code>opencode auth login</code> then type <code>upup</code></div>
+          </div>
         </div>
       </div>
     </div>
@@ -861,7 +897,7 @@
       <a href="https://github.com/DevSquad-AI/DevSquad/blob/main/LICENSE.md" target="_blank">License</a>
     </div>
     <p>Built with ❤️ by the DevSquad-AI community</p>
-    <p style="margin-top: 8px;" class="mono">SUL-1.0 License</p>
+    <p style="margin-top: 8px;" class="mono">MIT License</p>
   </footer>
 
   <script>
@@ -884,14 +920,6 @@
       observer.observe(el);
     });
 
-    // Copy to clipboard
-    document.querySelector('.install-code .copy').addEventListener('click', () => {
-      navigator.clipboard.writeText('git clone https://github.com/devsquad-ai/devsquad.git\ncd devsquad\nbun install');
-      document.querySelector('.install-code .copy').textContent = 'copied!';
-      setTimeout(() => {
-        document.querySelector('.install-code .copy').textContent = 'copy';
-      }, 2000);
-    });
-  </script>
+    </script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+# GitHub Pages builds
+_site/
+.jekyll-cache/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
